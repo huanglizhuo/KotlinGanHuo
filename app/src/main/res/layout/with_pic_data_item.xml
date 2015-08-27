@@ -1,0 +1,26 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    app:contentPadding="20dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/fuli_image"
+            android:layout_width="match_parent"
+            android:layout_height="400.0dp"
+            android:scaleType="fitCenter"
+            tools:ignore="ContentDescription"
+            />
+        <include layout="@layout/bottom_info"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
