@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.gson.Gson
 import com.lizhuo.kotlinlearning.Model.ConstantName
 import com.lizhuo.kotlinlearning.Model.GanHuo
@@ -27,6 +29,7 @@ public class FuLiFragment: Fragment() {
     private var ganhuo = GanHuo()
     private var recy: RecyclerView ?=null
     private var handler: Handler ?=null
+    private var refresh: SwipeRefreshLayout ?=null
 
     init {
         handler = object: Handler(){
@@ -35,8 +38,11 @@ public class FuLiFragment: Fragment() {
                     1 -> {
                         var adapter = FuLiAdapter(getActivity().getApplicationContext(),ganhuo)
                         recy?.setAdapter(adapter)
+                        refresh?.setRefreshing(false)
                     }
-
+                    2 -> {
+                        Toast.makeText(getActivity().getApplicationContext(),"网络有些问题:( 稍后试试", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         };
@@ -45,6 +51,7 @@ public class FuLiFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var rootView = inflater.inflate(R.layout.fragment_ganhuo,container,false)
         recy = rootView.findViewById(R.id.ganhuo_recy) as RecyclerView
+        refresh = rootView.findViewById(R.id.swip_refresh) as SwipeRefreshLayout
         return rootView
     }
 
@@ -56,6 +63,16 @@ public class FuLiFragment: Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         val layoutManager = LinearLayoutManager(getActivity())
         recy?.setLayoutManager(layoutManager)
+        refresh?.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener{
+            override fun onRefresh() {
+                GetFuLi()
+            }
+        });
+
+        refresh?.setColorScheme(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     fun GetFuLi() {
