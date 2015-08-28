@@ -60,17 +60,19 @@ public class GanHuoFragment(type: Int): Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         val layoutManager = LinearLayoutManager(getActivity())
         recy?.setLayoutManager(layoutManager)
+
     }
 
     fun GetGanHuoByType() {
+        var count=1000
         var getGanHuoUrl: String = ""
         when (this.type) {
-            ConstantName.ALL -> getGanHuoUrl += ConstantName.REQUEST_URL +"/all/50/1"
-            ConstantName.ANDROID -> getGanHuoUrl += ConstantName.REQUEST_URL +"/Android/50/1"
-            ConstantName.IOS -> getGanHuoUrl += ConstantName.REQUEST_URL +"/iOS/50/1"
-            ConstantName.FRONT_END -> getGanHuoUrl += ConstantName.REQUEST_URL +"/前端/50/1"
-            ConstantName.EXTANTION_RESUSE -> getGanHuoUrl += ConstantName.REQUEST_URL +"/拓展资源/50/1"
-            ConstantName.REST_VIDEO -> getGanHuoUrl += ConstantName.REQUEST_URL +"/休息视频/50/1"
+            ConstantName.ALL -> getGanHuoUrl += ConstantName.REQUEST_URL +"/all/"+count+"/1"
+            ConstantName.ANDROID -> getGanHuoUrl += ConstantName.REQUEST_URL +"/Android/"+count+"/1"
+            ConstantName.IOS -> getGanHuoUrl += ConstantName.REQUEST_URL +"/iOS/"+count+"/1"
+            ConstantName.FRONT_END -> getGanHuoUrl += ConstantName.REQUEST_URL +"/前端/"+count+"/1"
+            ConstantName.EXTANTION_RESUSE -> getGanHuoUrl += ConstantName.REQUEST_URL +"/拓展资源/"+count+"/1"
+            ConstantName.REST_VIDEO -> getGanHuoUrl += ConstantName.REQUEST_URL +"/休息视频/"+count+"/1"
         }
 
         val gson = Gson()

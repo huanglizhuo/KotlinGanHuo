@@ -3,6 +3,7 @@ package com.lizhuo.kotlinlearning.FuLi
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,7 @@ public class FuLiAdapter(private val context: Context,private val ganHuo: GanHuo
     override fun onBindViewHolder(holder: FuliViewHolder, i: Int) {
         holder.fuliImage?.setAspectRatio(1.0f);
         holder.fuliImage?.setImageURI(Uri.parse(ganHuo.getResults().get(i).getUrl()))
-        holder.fuliImage?.setOnClickListener (object : View.OnClickListener {
+        holder.card_view?.setOnClickListener (object : View.OnClickListener {
             override fun onClick(v: View) {
                 val intent = Intent(context, javaClass<FuLiDetailActivity>())
                 intent.putExtra("url",ganHuo.getResults().get(i).getUrl())
@@ -74,11 +75,13 @@ public class FuLiAdapter(private val context: Context,private val ganHuo: GanHuo
     }
 
     class FuliViewHolder(itemview: View): RecyclerView.ViewHolder(itemview) {
+        var card_view: CardView ?= null
         var fuliImage: SimpleDraweeView ?= null
         var editerAvter: SimpleDraweeView ?=null
         var editerName: TextView ?= null
         var publish_time: TextView ?=null
         init {
+            card_view = itemview.findViewById(R.id.card_view) as CardView
             fuliImage = itemview.findViewById(R.id.fuli_image) as SimpleDraweeView
             editerAvter = itemview.findViewById(R.id.editer_avter) as SimpleDraweeView
             editerName = itemview.findViewById(R.id.editer_name) as TextView

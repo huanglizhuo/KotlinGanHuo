@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +28,7 @@ public class GanHuoAdapter(private val context: Context,private val ganHuo: GanH
 
     override fun onBindViewHolder(holder: GanHuoViewHolder, i: Int) {
         holder.desc?.setText(ganHuo.getResults().get(i).getDesc())
-        holder.desc?.setOnClickListener (object : View.OnClickListener {
+        holder.card_view?.setOnClickListener (object : View.OnClickListener {
             override fun onClick(v: View) {
                 val intent = Intent(context, javaClass<GanHuoDetailActivity>())
                 intent.putExtra("url",ganHuo.getResults().get(i).getUrl())
@@ -75,11 +76,13 @@ public class GanHuoAdapter(private val context: Context,private val ganHuo: GanH
     }
 
     class GanHuoViewHolder(itemview: View): RecyclerView.ViewHolder(itemview) {
+        var card_view: CardView ?= null
         var desc: TextView ?= null
         var editerAvter: SimpleDraweeView ?=null
         var editerName: TextView ?= null
         var publish_time: TextView ?=null
         init {
+            card_view = itemview.findViewById(R.id.card_view) as CardView
             desc = itemview.findViewById(R.id.desc) as TextView
             editerAvter = itemview.findViewById(R.id.editer_avter) as SimpleDraweeView
             editerName = itemview.findViewById(R.id.editer_name) as TextView
