@@ -1,6 +1,7 @@
-package com.lizhuo.kotlinlearning
+package com.lizhuo.kotlinlearning.FuLi
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
 import com.lizhuo.kotlinlearning.Model.GanHuo
+import com.lizhuo.kotlinlearning.R
 
 /**
  * Created by lizhuo on 15-8-27.
@@ -24,6 +26,15 @@ public class FuLiAdapter(private val context: Context,private val ganHuo: GanHuo
     override fun onBindViewHolder(holder: FuliViewHolder, i: Int) {
         holder.fuliImage?.setAspectRatio(1.0f);
         holder.fuliImage?.setImageURI(Uri.parse(ganHuo.getResults().get(i).getUrl()))
+        holder.fuliImage?.setOnClickListener (object : View.OnClickListener {
+            override fun onClick(v: View) {
+                val intent = Intent(context, javaClass<FuLiDetailActivity>())
+                intent.putExtra("url",ganHuo.getResults().get(i).getUrl())
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(intent)
+            }
+        });
+
         holder.editerName?.setText(ganHuo.getResults().get(i).getWho())
         holder.publish_time?.setText(ganHuo.getResults().get(i).getPublishedAt().subSequence(0,10))
         var url = Uri.parse("")

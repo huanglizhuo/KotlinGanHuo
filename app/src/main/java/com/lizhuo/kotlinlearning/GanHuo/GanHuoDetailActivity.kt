@@ -1,4 +1,4 @@
-package com.lizhuo.kotlinlearning
+package com.lizhuo.kotlinlearning.GanHuo
 
 import android.os.Bundle
 import android.os.Handler
@@ -13,6 +13,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.lizhuo.kotlinlearning.R
 
 /**
  * Created by lizhuo on 15-8-27.

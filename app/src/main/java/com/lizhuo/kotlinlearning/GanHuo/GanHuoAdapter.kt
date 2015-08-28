@@ -1,4 +1,4 @@
-package com.lizhuo.kotlinlearning
+package com.lizhuo.kotlinlearning.GanHuo
 
 import android.content.Context
 import android.content.DialogInterface
@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
 import com.lizhuo.kotlinlearning.Model.GanHuo
+import com.lizhuo.kotlinlearning.R
 
 /**
  * Created by lizhuo on 15-8-27.
@@ -26,9 +27,9 @@ public class GanHuoAdapter(private val context: Context,private val ganHuo: GanH
 
     override fun onBindViewHolder(holder: GanHuoViewHolder, i: Int) {
         holder.desc?.setText(ganHuo.getResults().get(i).getDesc())
-        holder.desc?.setOnClickListener (object : View.OnClickListener{
+        holder.desc?.setOnClickListener (object : View.OnClickListener {
             override fun onClick(v: View) {
-                val intent = Intent(context,javaClass<GanHuoDetailActivity>())
+                val intent = Intent(context, javaClass<GanHuoDetailActivity>())
                 intent.putExtra("url",ganHuo.getResults().get(i).getUrl())
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(intent)

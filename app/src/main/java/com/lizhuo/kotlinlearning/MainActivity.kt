@@ -13,6 +13,8 @@ import android.view.MenuItem
 import android.widget.TableLayout
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.gson.Gson
+import com.lizhuo.kotlinlearning.FuLi.FuLiFragment
+import com.lizhuo.kotlinlearning.GanHuo.GanHuoFragment
 import com.lizhuo.kotlinlearning.Model.ConstantName
 import com.squareup.okhttp.Callback
 import com.squareup.okhttp.OkHttpClient

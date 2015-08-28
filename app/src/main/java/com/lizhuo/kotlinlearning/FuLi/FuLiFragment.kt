@@ -1,4 +1,4 @@
-package com.lizhuo.kotlinlearning
+package com.lizhuo.kotlinlearning.FuLi
 
 import android.os.Bundle
 import android.os.Handler
@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import com.google.gson.Gson
 import com.lizhuo.kotlinlearning.Model.ConstantName
 import com.lizhuo.kotlinlearning.Model.GanHuo
+import com.lizhuo.kotlinlearning.R
 import com.squareup.okhttp.Callback
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
@@ -58,7 +59,7 @@ public class FuLiFragment: Fragment() {
     }
 
     fun GetFuLi() {
-        var url = "http://gank.avosapps.com/api/data/福利/10/1"
+        var url = "http://gank.avosapps.com/api/data/福利/100/1"
         val gson = Gson()
         var client = OkHttpClient();
         val request = Request.Builder().url(url).build()

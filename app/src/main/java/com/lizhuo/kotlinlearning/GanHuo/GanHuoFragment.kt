@@ -1,4 +1,4 @@
-package com.lizhuo.kotlinlearning
+package com.lizhuo.kotlinlearning.GanHuo
 
 import android.content.Context
 import android.os.Bundle
@@ -15,6 +15,7 @@ import android.widget.TextView
 import com.google.gson.Gson
 import com.lizhuo.kotlinlearning.Model.ConstantName
 import com.lizhuo.kotlinlearning.Model.GanHuo
+import com.lizhuo.kotlinlearning.R
 import com.squareup.okhttp.Callback
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
@@ -64,12 +65,12 @@ public class GanHuoFragment(type: Int): Fragment() {
     fun GetGanHuoByType() {
         var getGanHuoUrl: String = ""
         when (this.type) {
-            ConstantName.ALL -> getGanHuoUrl += ConstantName.REQUEST_URL+"/all/3/1"
-            ConstantName.ANDROID -> getGanHuoUrl += ConstantName.REQUEST_URL+"/Android/3/1"
-            ConstantName.IOS -> getGanHuoUrl += ConstantName.REQUEST_URL+"/iOS/3/1"
-            ConstantName.FRONT_END-> getGanHuoUrl += ConstantName.REQUEST_URL+"/前端/3/1"
-            ConstantName.EXTANTION_RESUSE-> getGanHuoUrl += ConstantName.REQUEST_URL+"/拓展资源/3/1"
-            ConstantName.REST_VIDEO-> getGanHuoUrl += ConstantName.REQUEST_URL+"/休息视频/3/1"
+            ConstantName.ALL -> getGanHuoUrl += ConstantName.REQUEST_URL +"/all/50/1"
+            ConstantName.ANDROID -> getGanHuoUrl += ConstantName.REQUEST_URL +"/Android/50/1"
+            ConstantName.IOS -> getGanHuoUrl += ConstantName.REQUEST_URL +"/iOS/50/1"
+            ConstantName.FRONT_END -> getGanHuoUrl += ConstantName.REQUEST_URL +"/前端/50/1"
+            ConstantName.EXTANTION_RESUSE -> getGanHuoUrl += ConstantName.REQUEST_URL +"/拓展资源/50/1"
+            ConstantName.REST_VIDEO -> getGanHuoUrl += ConstantName.REQUEST_URL +"/休息视频/50/1"
         }
 
         val gson = Gson()
