@@ -20,7 +20,6 @@ import com.squareup.okhttp.Callback
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import com.squareup.okhttp.Response
-import kotlinx.android.synthetic.activity_main.*;
 import org.json.JSONObject
 import java.io.IOException
 
