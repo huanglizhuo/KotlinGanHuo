@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.gson.Gson
 import com.lizhuo.kotlinlearning.Model.ConstantName
@@ -30,6 +31,7 @@ public class FuLiFragment: Fragment() {
     private var recy: RecyclerView ?=null
     private var handler: Handler ?=null
     private var refresh: SwipeRefreshLayout ?=null
+    private var progressbar: ProgressBar ?=null
 
     init {
         handler = object: Handler(){
@@ -38,6 +40,8 @@ public class FuLiFragment: Fragment() {
                     1 -> {
                         var adapter = FuLiAdapter(getActivity().getApplicationContext(),ganhuo)
                         recy?.setAdapter(adapter)
+                        recy?.setVisibility(View.VISIBLE)
+                        progressbar?.setVisibility(View.GONE)
                         refresh?.setRefreshing(false)
                     }
                     2 -> {
@@ -52,31 +56,32 @@ public class FuLiFragment: Fragment() {
         var rootView = inflater.inflate(R.layout.fragment_ganhuo,container,false)
         recy = rootView.findViewById(R.id.ganhuo_recy) as RecyclerView
         refresh = rootView.findViewById(R.id.swip_refresh) as SwipeRefreshLayout
+        progressbar = rootView.findViewById(R.id.progressbar) as ProgressBar
         return rootView
     }
 
     override fun onStart() {
         super.onStart()
+        refresh?.setRefreshing(true)
         GetFuLi()
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         val layoutManager = LinearLayoutManager(getActivity())
-        recy?.setLayoutManager(layoutManager)
         refresh?.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener{
             override fun onRefresh() {
                 GetFuLi()
             }
         });
-
         refresh?.setColorScheme(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+        recy?.setLayoutManager(layoutManager)
     }
 
     fun GetFuLi() {
-        var url = "http://gank.avosapps.com/api/data/福利/100/1"
+        var url = "http://gank.avosapps.com/api/data/福利/1000/1"
         val gson = Gson()
         var client = OkHttpClient();
         val request = Request.Builder().url(url).build()

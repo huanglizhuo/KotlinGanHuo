@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
@@ -35,6 +36,7 @@ public class GanHuoFragment(type: Int): Fragment() {
     private var recy: RecyclerView ?=null
     private var handler: Handler ?=null
     private var refresh: SwipeRefreshLayout ?=null
+    private var progressbar: ProgressBar ?=null
 
     init {
         this.type = type
@@ -44,6 +46,8 @@ public class GanHuoFragment(type: Int): Fragment() {
                     1 -> {
                         var adapter = GanHuoAdapter(getActivity().getApplicationContext(),ganhuo)
                         recy?.setAdapter(adapter)
+                        recy?.setVisibility(View.VISIBLE)
+                        progressbar?.setVisibility(View.GONE)
                         refresh?.setRefreshing(false)
                     }
                     2 -> {
@@ -57,6 +61,7 @@ public class GanHuoFragment(type: Int): Fragment() {
         var rootView = inflater.inflate(R.layout.fragment_ganhuo,container,false)
         recy = rootView.findViewById(R.id.ganhuo_recy) as RecyclerView
         refresh = rootView.findViewById(R.id.swip_refresh) as SwipeRefreshLayout
+        progressbar = rootView.findViewById(R.id.progressbar) as ProgressBar
         return rootView
     }
 
@@ -67,21 +72,20 @@ public class GanHuoFragment(type: Int): Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         val layoutManager = LinearLayoutManager(getActivity())
-        recy?.setLayoutManager(layoutManager)
         refresh?.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener{
             override fun onRefresh() {
                 GetGanHuoByType()
             }
         });
-
         refresh?.setColorScheme(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+        recy?.setLayoutManager(layoutManager)
     }
 
     fun GetGanHuoByType() {
-        var count=1000
+        var count=100
         var getGanHuoUrl: String = ""
         when (this.type) {
             ConstantName.ALL -> getGanHuoUrl += ConstantName.REQUEST_URL +"/all/"+count+"/1"
