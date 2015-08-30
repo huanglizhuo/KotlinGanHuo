@@ -30,14 +30,12 @@ import java.io.IOException
  */
 
 public class GanHuoFragment(type: Int): Fragment() {
-
     private var ganhuo = GanHuo()
     private var type: Int = 0
     private var recy: RecyclerView ?=null
     private var handler: Handler ?=null
     private var refresh: SwipeRefreshLayout ?=null
     private var progressbar: ProgressBar ?=null
-
     init {
         this.type = type
         handler = object: Handler(){
@@ -95,11 +93,9 @@ public class GanHuoFragment(type: Int): Fragment() {
             ConstantName.EXTANTION_RESUSE -> getGanHuoUrl += ConstantName.REQUEST_URL +"/拓展资源/"+count+"/1"
             ConstantName.REST_VIDEO -> getGanHuoUrl += ConstantName.REQUEST_URL +"/休息视频/"+count+"/1"
         }
-
         val gson = Gson()
         var client = OkHttpClient();
         val request = Request.Builder().url(getGanHuoUrl).build()
-
         client.clone().newCall(request).enqueue(object : Callback {
             override fun onResponse(response: Response) {
                 var res = response.body().string()
@@ -111,5 +107,4 @@ public class GanHuoFragment(type: Int): Fragment() {
             }
         });
     }
-
 }
