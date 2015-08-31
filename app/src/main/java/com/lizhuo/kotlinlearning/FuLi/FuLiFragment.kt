@@ -40,7 +40,7 @@ public class FuLiFragment: Fragment() {
                     1 -> {
                         var adapter = FuLiAdapter(getActivity().getApplicationContext(),ganhuo)
                         recy?.setAdapter(adapter)
-                        recy?.setVisibility(View.VISIBLE)
+                        refresh?.setVisibility(View.VISIBLE)
                         progressbar?.setVisibility(View.GONE)
                         refresh?.setRefreshing(false)
                     }

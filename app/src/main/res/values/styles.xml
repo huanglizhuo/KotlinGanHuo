@@ -1,11 +1,15 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#6a3ba7</item>
-        <item name="colorPrimaryDark">#6a3bB7</item>
-        <item name="colorAccent">#FF4081</item>
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#656565</item>
+        <item name="colorAccent">#656565</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
         <item name="android:windowBackground">@color/window_background</item>
+    </style>
+
+    <style name="ToolbarSubtitle">
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

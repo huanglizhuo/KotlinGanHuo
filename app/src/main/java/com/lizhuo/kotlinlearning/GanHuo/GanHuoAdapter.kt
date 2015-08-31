@@ -37,7 +37,7 @@ public class GanHuoAdapter(private val context: Context,private val ganHuo: GanH
             }
         });
 
-        holder.editerName?.setText(ganHuo.getResults().get(i).getWho())
+        holder.editerName?.setText("by "+ganHuo.getResults().get(i).getWho())
         holder.publish_time?.setText(ganHuo.getResults().get(i).getPublishedAt().subSequence(0,10))
         var url = Uri.parse("")
         when (ganHuo.getResults().get(i).getWho()) {

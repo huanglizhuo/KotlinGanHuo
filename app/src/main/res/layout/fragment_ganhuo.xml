@@ -10,10 +10,10 @@
         android:layout_height="wrap_content" />
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swip_refresh"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
-            android:visibility="gone"
             android:id="@+id/ganhuo_recy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

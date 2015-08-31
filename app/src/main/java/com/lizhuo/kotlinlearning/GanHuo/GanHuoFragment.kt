@@ -44,7 +44,7 @@ public class GanHuoFragment(type: Int): Fragment() {
                     1 -> {
                         var adapter = GanHuoAdapter(getActivity().getApplicationContext(),ganhuo)
                         recy?.setAdapter(adapter)
-                        recy?.setVisibility(View.VISIBLE)
+                        refresh?.setVisibility(View.VISIBLE)
                         progressbar?.setVisibility(View.GONE)
                         refresh?.setRefreshing(false)
                     }
