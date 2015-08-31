@@ -3,12 +3,14 @@ package com.lizhuo.kotlinlearning.GanHuo
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
 import com.lizhuo.kotlinlearning.Model.GanHuo
@@ -36,7 +38,7 @@ public class GanHuoAdapter(private val context: Context,private val ganHuo: GanH
                 context.startActivity(intent)
             }
         });
-
+//        holder.detail_src?.loadUrl(ganHuo.getResults().get(i).getUrl())
         holder.editerName?.setText("by "+ganHuo.getResults().get(i).getWho())
         holder.publish_time?.setText(ganHuo.getResults().get(i).getPublishedAt().subSequence(0,10))
         var url = Uri.parse("")
@@ -81,12 +83,15 @@ public class GanHuoAdapter(private val context: Context,private val ganHuo: GanH
         var editerAvter: SimpleDraweeView ?=null
         var editerName: TextView ?= null
         var publish_time: TextView ?=null
+//        var detail_src: WebView ?=null
         init {
             card_view = itemview.findViewById(R.id.card_view) as CardView
             desc = itemview.findViewById(R.id.desc) as TextView
             editerAvter = itemview.findViewById(R.id.editer_avter) as SimpleDraweeView
             editerName = itemview.findViewById(R.id.editer_name) as TextView
             publish_time = itemview.findViewById(R.id.publish_time) as TextView
+//            detail_src = itemview.findViewById(R.id.detail_wb) as WebView
+
         }
     }
 

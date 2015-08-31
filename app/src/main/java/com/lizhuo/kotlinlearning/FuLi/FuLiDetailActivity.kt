@@ -24,8 +24,8 @@ public class FuLiDetailActivity: AppCompatActivity() {
         setSupportActionBar(toolbar)
         getSupportActionBar().setDisplayShowTitleEnabled(false)
         val actionbar = getSupportActionBar()
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha)
+//        actionbar.setDisplayHomeAsUpEnabled(true)
+//        actionbar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha)
         var fuli_image = findViewById(R.id.fuli_image) as ImageView
         Picasso.with(this).load(getIntent().getStringExtra("url")).into(fuli_image)
         var mAttach = PhotoViewAttacher(fuli_image)

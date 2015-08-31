@@ -40,9 +40,9 @@ public class GanHuoDetailActivity: AppCompatActivity() {
         var toolbar = findViewById(R.id.backtoolbar) as Toolbar
         setSupportActionBar(toolbar)
         val actionbar = getSupportActionBar()
-        actionbar.setDisplayHomeAsUpEnabled(true)
         getSupportActionBar().setDisplayShowTitleEnabled(false)
-        actionbar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha)
+//        actionbar.setDisplayHomeAsUpEnabled(true)
+//        actionbar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha)
 
         ganhuoDetail = findViewById(R.id.ganhuo_detail) as WebView
         progressbar = findViewById(R.id.progressbar) as ProgressBar
