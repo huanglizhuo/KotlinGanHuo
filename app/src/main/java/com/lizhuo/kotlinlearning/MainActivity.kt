@@ -37,7 +37,8 @@ public class MainActivity : AppCompatActivity() {
     fun initView() {
         toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
-        getSupportActionBar().setDisplayShowTitleEnabled(false)
+//        getSupportActionBar().setDisplayShowTitleEnabled(false)
+
         val viewPageAdapter = ViewPagerAdapter(getSupportFragmentManager())
 
         viewPageAdapter.addFragment(GanHuoFragment(ConstantName.ANDROID),"android")
