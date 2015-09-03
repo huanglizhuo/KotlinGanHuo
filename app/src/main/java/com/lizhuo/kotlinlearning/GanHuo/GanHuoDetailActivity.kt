@@ -23,16 +23,6 @@ public class GanHuoDetailActivity: AppCompatActivity() {
 
     private var ganhuoDetail: WebView?=null
     private var progressbar: ProgressBar?=null
-//    private var handler = object: Handler() {
-//        override fun handleMessage(msg: Message) {
-//            super.handleMessage(msg)
-//            when (msg.what){
-//                1 -> {
-//                    ganhuoDetail?.setVisibility(View.VISIBLE)
-//                    }
-//                }
-//        }
-//    };
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +30,10 @@ public class GanHuoDetailActivity: AppCompatActivity() {
         var toolbar = findViewById(R.id.backtoolbar) as Toolbar
         setSupportActionBar(toolbar)
         val actionbar = getSupportActionBar()
-//        getSupportActionBar().setDisplayShowTitleEnabled(false)
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha)
-
         ganhuoDetail = findViewById(R.id.ganhuo_detail) as WebView
         progressbar = findViewById(R.id.progressbar) as ProgressBar
-
         ganhuoDetail?.loadUrl(getIntent().getStringExtra("url"))
         ganhuoDetail?.setWebViewClient(WebViewClientWithoutTitle());
         ganhuoDetail?.setWebChromeClient(WithProgressClient())

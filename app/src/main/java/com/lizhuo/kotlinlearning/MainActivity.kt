@@ -37,7 +37,6 @@ public class MainActivity : AppCompatActivity() {
     fun initView() {
         toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
-//        getSupportActionBar().setDisplayShowTitleEnabled(false)
 
         val viewPageAdapter = ViewPagerAdapter(getSupportFragmentManager())
 
@@ -46,7 +45,6 @@ public class MainActivity : AppCompatActivity() {
         viewPageAdapter.addFragment(GanHuoFragment(ConstantName.FRONT_END),"前端")
         viewPageAdapter.addFragment(GanHuoFragment(ConstantName.EXTANTION_RESUSE),"扩展资源")
         viewPageAdapter.addFragment(FuLiFragment(),"福利")
-//        viewPageAdapter.addFragment(GanHuoFragment(ConstantName.REST_VIDEO),"休息视频")
         var viewPager = findViewById(R.id.viewpager) as ViewPager
         viewPager.setAdapter(viewPageAdapter)
 

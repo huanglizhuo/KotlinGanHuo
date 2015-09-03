@@ -22,7 +22,6 @@ public class FuLiDetailActivity: AppCompatActivity() {
         setContentView(R.layout.activity_fuli_detail)
         var toolbar = findViewById(R.id.backtoolbar) as Toolbar
         setSupportActionBar(toolbar)
-//        getSupportActionBar().setDisplayShowTitleEnabled(false)
         val actionbar = getSupportActionBar()
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha)
